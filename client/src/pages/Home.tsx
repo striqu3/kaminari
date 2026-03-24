@@ -235,114 +235,164 @@ export default function Home() {
         </div>
       </section>
 
-      {/* História Section */}
-      <section id="historia" className="py-0 bg-black overflow-hidden">
-        {/* Imagem de fundo com overlay */}
-        <div className="relative">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/IpgOsSvnnCCTxyAa.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-black/75" />
+      {/* História Section - V2: Parallax + Citação + Cards */}
+      <section id="historia" className="bg-white">
 
-          <div className="relative z-10 container mx-auto px-4 py-24">
-            {/* Título */}
-            <div className="text-center mb-20">
-              <p className="text-rose-400 text-sm font-semibold tracking-[0.3em] uppercase mb-4">Uma herança de gerações</p>
-              <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                A História do<br />
-                <span className="text-rose-400">Judô Kaminari</span>
-              </h2>
-            </div>
+        {/* Bloco 1: Parallax Hero com citação central */}
+        <div
+          className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
+          style={{
+            backgroundImage: "url('https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/IpgOsSvnnCCTxyAa.jpg')",
+            backgroundAttachment: "fixed",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/70" />
+          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <p className="text-rose-400 text-sm font-semibold tracking-[0.3em] uppercase mb-8">Uma herança de gerações</p>
+            <h2 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-10">
+              A História do<br />
+              <span className="text-rose-400">Judô Kaminari</span>
+            </h2>
+            <blockquote className="text-xl md:text-2xl text-gray-200 italic leading-relaxed border-t border-b border-rose-500/40 py-8">
+              &ldquo;Mais do que golpes e técnicas, ensinam respeito, superação e caráter — mantendo viva uma história que começou em família e que continua transformando vidas.&rdquo;
+            </blockquote>
+          </div>
+        </div>
 
-            {/* Layout: Texto + Linha do Tempo */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        {/* Bloco 2: Narrativa em cards sobre fundo branco */}
+        <div className="bg-white py-24">
+          <div className="container mx-auto px-4 max-w-5xl">
 
-              {/* Texto narrativo */}
-              <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-                <p>
-                  A história do Judô Kaminari começa dentro de casa, entre irmãos, sonhos e a influência marcante de um avô.
-                </p>
-                <p>
-                  <span className="text-white font-semibold">Marcelo Yu Kaminari</span>, <span className="text-white font-semibold">Victor Koudi Kaminari</span> e <span className="text-white font-semibold">Matheus Takashi Kaminari</span> deram seus primeiros passos no judô ainda muito jovens, guiados pelo olhar atento e pela sabedoria de seu avô, o sensei Hiromitsu Sakamoto. Mais do que ensinar técnicas, ele transmitiu valores que moldariam não apenas atletas, mas pessoas.
-                </p>
-                <p>
-                  Com dedicação, disciplina e paixão, os irmãos Kaminari trilharam um caminho de conquistas, acumulando títulos estaduais e nacionais ao longo de toda a sua jornada como atletas.
-                </p>
-                <p className="text-rose-300 italic border-l-2 border-rose-500 pl-4">
-                  "Mais do que golpes e técnicas, ensinam respeito, superação e caráter — mantendo viva uma história que começou em família e que continua transformando vidas."
-                </p>
-                <p>
-                  Ao final de suas carreiras competitivas, os senseis Yu e Koudi escolheram continuar no tatame por um propósito maior: ensinar. Hoje, carregam adiante o legado de seu avô, formando novas gerações.
+            {/* Intro */}
+            <p className="text-xl text-gray-600 text-center leading-relaxed mb-16 max-w-3xl mx-auto">
+              A história do Judô Kaminari começa dentro de casa, entre irmãos, sonhos e a influência marcante de um avô.
+            </p>
+
+            {/* Cards da linhagem - horizontal */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+
+              {/* Card 1 - Origem */}
+              <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-rose-500 flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-lg">柔</span>
+                  </div>
+                  <div>
+                    <p className="text-rose-500 text-xs font-semibold tracking-widest uppercase">A Origem</p>
+                    <h3 className="text-black text-xl font-bold">Uma linhagem direta</h3>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  O sensei Sakamoto carregava consigo uma história grandiosa. Pioneiro do judô no Paraná, foi aluno do sensei Sadai Ishihara, que por sua vez teve a honra de aprender diretamente com <strong>Jigoro Kano</strong>, o criador do judô.
                 </p>
               </div>
 
-              {/* Linha do Tempo - Linhagem */}
+              {/* Card 2 - Herança */}
+              <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-rose-500 flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-lg">先</span>
+                  </div>
+                  <div>
+                    <p className="text-rose-500 text-xs font-semibold tracking-widest uppercase">A Herança</p>
+                    <h3 className="text-black text-xl font-bold">Sensei Hiromitsu Sakamoto</h3>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  Essa conexão direta com a essência da modalidade transformou o aprendizado dos irmãos em algo ainda mais especial — uma verdadeira herança transmitida com valores que moldariam não apenas atletas, mas pessoas.
+                </p>
+              </div>
+
+              {/* Card 3 - Conquistas */}
+              <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-rose-500 flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-lg">雷</span>
+                  </div>
+                  <div>
+                    <p className="text-rose-500 text-xs font-semibold tracking-widest uppercase">As Conquistas</p>
+                    <h3 className="text-black text-xl font-bold">Campeões Estaduais e Nacionais</h3>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  Com dedicação, disciplina e paixão, <strong>Marcelo Yu</strong>, <strong>Victor Koudi</strong> e <strong>Matheus Takashi Kaminari</strong> trilharam um caminho de conquistas, acumulando títulos ao longo de toda a sua jornada como atletas.
+                </p>
+              </div>
+
+              {/* Card 4 - Propósito */}
+              <div className="bg-black border border-gray-800 rounded-2xl p-8 hover:shadow-xl transition-shadow">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                    <span className="text-rose-600 font-bold text-lg">心</span>
+                  </div>
+                  <div>
+                    <p className="text-rose-400 text-xs font-semibold tracking-widest uppercase">O Propósito</p>
+                    <h3 className="text-white text-xl font-bold">Ensinar é o legado</h3>
+                  </div>
+                </div>
+                <p className="text-gray-300 leading-relaxed">
+                  Ao final de suas carreiras competitivas, os senseis Yu e Koudi escolheram continuar no tatame por um propósito maior: ensinar. Hoje, formam novas gerações mantendo viva uma história que começou em família.
+                </p>
+              </div>
+            </div>
+
+            {/* Linha do Tempo Horizontal - Linhagem */}
+            <div className="mt-4 mb-4">
+              <h3 className="text-center text-2xl font-bold text-black mb-3">A Linhagem</h3>
+              <p className="text-center text-gray-500 mb-12">Uma conexão direta com o criador do judô</p>
+
               <div className="relative">
-                <div className="absolute left-6 top-0 bottom-0 w-px bg-rose-500/40" />
+                {/* Linha conectora */}
+                <div className="hidden md:block absolute top-6 left-[12.5%] right-[12.5%] h-px bg-rose-300" />
 
-                {/* Nó 1 - Jigoro Kano */}
-                <div className="relative flex gap-6 mb-12">
-                  <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-rose-500 border-2 border-rose-300 flex items-center justify-center shadow-lg shadow-rose-500/30">
-                    <span className="text-white text-xs font-bold">柔</span>
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-rose-400 text-xs font-semibold tracking-widest uppercase mb-1">O Fundador</p>
-                    <h4 className="text-white text-xl font-bold mb-2">Jigoro Kano</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Criador do judô moderno. Sua filosofia de "máxima eficiência com mínimo esforço" e "prosperidade e benefício mútuo" fundou as bases de tudo que viria depois.
-                    </p>
-                  </div>
-                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
 
-                {/* Nó 2 - Sensei Ishihara */}
-                <div className="relative flex gap-6 mb-12">
-                  <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-rose-600 border-2 border-rose-400 flex items-center justify-center shadow-lg shadow-rose-500/20">
-                    <span className="text-white text-xs font-bold">師</span>
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-rose-400 text-xs font-semibold tracking-widest uppercase mb-1">Discípulo Direto</p>
-                    <h4 className="text-white text-xl font-bold mb-2">Sensei Sadai Ishihara</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Aluno direto de Jigoro Kano, carregou os ensinamentos originais do judô e os transmitiu com fidelidade e profundidade.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Nó 3 - Sensei Sakamoto */}
-                <div className="relative flex gap-6 mb-12">
-                  <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-rose-700 border-2 border-rose-500 flex items-center justify-center shadow-lg shadow-rose-500/20">
-                    <span className="text-white text-xs font-bold">先</span>
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-rose-400 text-xs font-semibold tracking-widest uppercase mb-1">Pioneiro no Paraná</p>
-                    <h4 className="text-white text-xl font-bold mb-2">Sensei Hiromitsu Sakamoto</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Pioneiro do judô no Paraná e avô dos irmãos Kaminari. Aluno do Sensei Ishihara, trouxe a essência do judô original para o Brasil e a transmitiu à sua família.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Nó 4 - Irmãos Kaminari */}
-                <div className="relative flex gap-6">
-                  <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-white border-2 border-rose-400 flex items-center justify-center shadow-lg shadow-white/20">
-                    <span className="text-rose-600 text-xs font-bold">雷</span>
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-rose-400 text-xs font-semibold tracking-widest uppercase mb-1">A Nova Geração</p>
-                    <h4 className="text-white text-xl font-bold mb-2">Senseis Yu, Koudi & Takashi</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Campeões estaduais e nacionais, hoje dedicam suas vidas a ensinar. Carregam adiante uma linhagem direta que remonta ao próprio criador do judô.
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <span className="bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs px-3 py-1 rounded-full">Títulos Estaduais</span>
-                      <span className="bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs px-3 py-1 rounded-full">Títulos Nacionais</span>
-                      <span className="bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs px-3 py-1 rounded-full">Formadores de Atletas</span>
+                  {/* Nó 1 - Jigoro Kano */}
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-rose-500 border-4 border-white shadow-lg shadow-rose-200 flex items-center justify-center mb-4">
+                      <span className="text-white font-bold">柔</span>
                     </div>
+                    <p className="text-rose-500 text-xs font-semibold tracking-widest uppercase mb-1">O Fundador</p>
+                    <h4 className="text-black font-bold text-base mb-2">Jigoro Kano</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed">Criador do judô moderno e pai de todos os senseis que vieram depois</p>
                   </div>
+
+                  {/* Nó 2 - Sensei Ishihara */}
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-rose-500 border-4 border-white shadow-lg shadow-rose-200 flex items-center justify-center mb-4">
+                      <span className="text-white font-bold">師</span>
+                    </div>
+                    <p className="text-rose-500 text-xs font-semibold tracking-widest uppercase mb-1">Discípulo Direto</p>
+                    <h4 className="text-black font-bold text-base mb-2">Sensei Ishihara</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed">Aluno direto de Kano, transmitiu os ensinamentos originais com fidelidade</p>
+                  </div>
+
+                  {/* Nó 3 - Sensei Sakamoto */}
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-rose-500 border-4 border-white shadow-lg shadow-rose-200 flex items-center justify-center mb-4">
+                      <span className="text-white font-bold">先</span>
+                    </div>
+                    <p className="text-rose-500 text-xs font-semibold tracking-widest uppercase mb-1">Pioneiro no Paraná</p>
+                    <h4 className="text-black font-bold text-base mb-2">Sensei Sakamoto</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed">Trouxe o judô original ao Brasil e formou os irmãos Kaminari</p>
+                  </div>
+
+                  {/* Nó 4 - Irmãos Kaminari */}
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative z-10 w-12 h-12 rounded-full bg-black border-4 border-rose-400 shadow-lg shadow-rose-200 flex items-center justify-center mb-4">
+                      <span className="text-white font-bold">雷</span>
+                    </div>
+                    <p className="text-rose-500 text-xs font-semibold tracking-widest uppercase mb-1">Hoje</p>
+                    <h4 className="text-black font-bold text-base mb-2">Senseis Kaminari</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed">Yu, Koudi e Takashi — campeões que hoje formam a próxima geração</p>
+                  </div>
+
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
