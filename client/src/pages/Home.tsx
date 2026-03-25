@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Menu, X, MessageCircle, MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import { useState, useEffect } from "react";
+import { GaleriaLightbox } from "@/components/GaleriaLightbox";
 
 /**
  * Design System: Minimalismo Japonês Contemporâneo com Rosa/Coral
@@ -624,93 +625,14 @@ export default function Home() {
       {/* Galeria Section */}
       <section id="galeria" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Instagram size={32} className="text-rose-500" />
-            <h2 className="text-4xl md:text-5xl font-bold text-black">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
               Galeria
             </h2>
+            <p className="text-gray-500 text-lg">Clique em qualquer foto para ampliar</p>
           </div>
 
-          {/* Frase Motivacional */}
-          <div className="bg-gradient-to-r from-black via-rose-900 to-gray-900 text-white p-8 rounded-lg mb-12 text-center">
-            <p className="text-xl md:text-2xl font-semibold leading-relaxed">
-              "Academia Kaminari oferece aulas de judô para todas as idades, com foco no aprendizado, respeito e superação. Venha fazer parte da nossa família e descubra o verdadeiro espírito do judô! 💪✨"
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Post 1 - Local/Dojo */}
-            <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group cursor-pointer">
-              <div className="relative">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421895232/95jDM6ztxDZcobn8oqCuag/judo-dojo-interior-grDPSH8YRCJRDhrWwZq8Nc.webp"
-                  alt="Nosso Dojo"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-rose-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Instagram className="text-white" size={32} />
-                </div>
-              </div>
-              <div className="p-4 bg-white">
-                <p className="font-semibold text-black">Nosso Dojo</p>
-                <p className="text-sm text-gray-600">Local de treinamento</p>
-              </div>
-            </div>
-
-            {/* Post 2 - Senseis */}
-            <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group cursor-pointer">
-              <div className="relative">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421895232/95jDM6ztxDZcobn8oqCuag/judo-hero-banner-L6v27DZEjzWGnShzmJcrhJ.webp"
-                  alt="Nossos Senseis"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-rose-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Instagram className="text-white" size={32} />
-                </div>
-              </div>
-              <div className="p-4 bg-white">
-                <p className="font-semibold text-black">Nossos Senseis</p>
-                <p className="text-sm text-gray-600">Mestres experientes</p>
-              </div>
-            </div>
-
-            {/* Post 3 - Alunos Praticando */}
-            <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group cursor-pointer">
-              <div className="relative">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421895232/95jDM6ztxDZcobn8oqCuag/judo-kids-training-BvVfKzYJD898TPDDzGjvdc.webp"
-                  alt="Alunos Praticando"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-rose-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Instagram className="text-white" size={32} />
-                </div>
-              </div>
-              <div className="p-4 bg-white">
-                <p className="font-semibold text-black">Alunos em Ação</p>
-                <p className="text-sm text-gray-600">Treinos e técnicas</p>
-              </div>
-            </div>
-
-            {/* Post 4 - Competição */}
-            <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group cursor-pointer">
-              <div className="relative">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421895232/95jDM6ztxDZcobn8oqCuag/judo-competition-LuWQQ62JEQgTo8EkxESGWH.webp"
-                  alt="Competição"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-rose-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Instagram className="text-white" size={32} />
-                </div>
-              </div>
-              <div className="p-4 bg-white">
-                <p className="font-semibold text-black">Competições</p>
-                <p className="text-sm text-gray-600">Eventos e torneios</p>
-              </div>
-            </div>
-          </div>
+          <GaleriaLightbox />
 
           <div className="mt-12 text-center">
             <p className="text-gray-600 mb-6 text-lg">
@@ -728,6 +650,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Contato Section */}
       <section id="contato" className="py-20 bg-white">
