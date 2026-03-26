@@ -2,8 +2,13 @@ import { useState, useEffect, useCallback } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { GALERIA_FOTOS } from "@/lib/data";
 
+const FOTOS_INICIAIS = 6;
+
 export function GaleriaLightbox() {
+  const [mostrarTodas, setMostrarTodas] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const fotosVisiveis = mostrarTodas ? GALERIA_FOTOS : GALERIA_FOTOS.slice(0, FOTOS_INICIAIS);
 
   const abrirFoto = (index: number) => setLightboxIndex(index);
   const fecharLightbox = () => setLightboxIndex(null);
@@ -40,7 +45,7 @@ export function GaleriaLightbox() {
     <>
       {/* Grid Masonry */}
       <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
-        {GALERIA_FOTOS.map((foto, index) => (
+        {fotosVisiveis.map((foto, index) => (
           <div
             key={foto.src}
             className="break-inside-avoid cursor-pointer overflow-hidden rounded-lg group relative"
@@ -63,6 +68,28 @@ export function GaleriaLightbox() {
           </div>
         ))}
       </div>
+
+      {/* Botão Mostrar mais / menos */}
+      {GALERIA_FOTOS.length > FOTOS_INICIAIS && (
+        <div className="mt-8 text-center">
+          <button
+            onClick={() => setMostrarTodas(!mostrarTodas)}
+            className="inline-flex items-center gap-2 border-2 border-black text-black font-semibold px-8 py-3 rounded-lg hover:bg-black hover:text-white transition-all duration-200"
+          >
+            {mostrarTodas ? (
+              <>
+                <ChevronLeft size={18} className="rotate-90" />
+                Mostrar menos
+              </>
+            ) : (
+              <>
+                <ChevronRight size={18} className="-rotate-90" />
+                Mostrar mais {GALERIA_FOTOS.length - FOTOS_INICIAIS} fotos
+              </>
+            )}
+          </button>
+        </div>
+      )}
 
       {/* Lightbox */}
       {lightboxIndex !== null && (
