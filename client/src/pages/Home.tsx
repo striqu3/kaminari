@@ -414,14 +414,15 @@ export default function Home() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-black mb-3">Judô Infantil</h3>
+                <h3 className="text-2xl font-bold text-black mb-3">Turma Kids</h3>
+                <p className="text-xs font-semibold text-rose-500 uppercase tracking-wide mb-2">4 a 7 anos</p>
                 <p className="text-gray-700 mb-4">
-                  Para crianças de 4 a 11 anos. Desenvolvemos coordenação, disciplina e confiança através de técnicas básicas e jogos lúdicos.
+                  Primeiro contato com o tatame. Desenvolvemos coordenação motora, equilíbrio e confiança através de brincadeiras e jogos inspirados no judô.
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>✓ Técnicas básicas</li>
-                  <li>✓ Desenvolvimento motor</li>
-                  <li>✓ Diversão e aprendizado</li>
+                  <li>✓ Coordenação e equilíbrio</li>
+                  <li>✓ Jogos lúdicos e divertidos</li>
+                  <li>✓ Disciplina desde cedo</li>
                 </ul>
               </div>
             </Card>
@@ -434,14 +435,15 @@ export default function Home() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-black mb-3">Judô Juvenil</h3>
+                <h3 className="text-2xl font-bold text-black mb-3">Turma Infantil</h3>
+                <p className="text-xs font-semibold text-rose-500 uppercase tracking-wide mb-2">7 a 12 anos</p>
                 <p className="text-gray-700 mb-4">
-                  Para adolescentes de 12 a 17 anos. Aprofundamos técnicas e iniciamos preparação para competições.
+                  Técnicas fundamentais do judô com foco em desenvolvimento físico, respeito e espírito esportivo. Introdução gradual às competições.
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>✓ Técnicas intermediárias</li>
-                  <li>✓ Preparação física</li>
-                  <li>✓ Competições</li>
+                  <li>✓ Técnicas básicas e intermediárias</li>
+                  <li>✓ Desenvolvimento físico e mental</li>
+                  <li>✓ Primeiras competições</li>
                 </ul>
               </div>
             </Card>
@@ -454,14 +456,15 @@ export default function Home() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-black mb-3">Judô Adulto</h3>
+                <h3 className="text-2xl font-bold text-black mb-3">Turma Avançada</h3>
+                <p className="text-xs font-semibold text-rose-500 uppercase tracking-wide mb-2">13 anos em diante</p>
                 <p className="text-gray-700 mb-4">
-                  Para maiores de 18 anos. Treino completo com técnicas avançadas, condicionamento físico e preparação competitiva.
+                  Treinamento sério para quem quer evoluir de verdade. Técnicas avançadas, condicionamento físico e preparação para competições regionais e nacionais.
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>✓ Técnicas avançadas</li>
-                  <li>✓ Condicionamento</li>
-                  <li>✓ Competições</li>
+                  <li>✓ Técnicas avançadas de arremesso e solo</li>
+                  <li>✓ Condicionamento físico completo</li>
+                  <li>✓ Competições e campeonatos</li>
                 </ul>
               </div>
             </Card>
