@@ -409,8 +409,8 @@ export default function Home() {
             {/* Judô Infantil */}
             <Card className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421895232/95jDM6ztxDZcobn8oqCuag/judo-kids-training-BvVfKzYJD898TPDDzGjvdc.webp"
-                alt="Judô Infantil"
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/BxCFZzjWkidtfvaF.jpeg"
+                alt="Turma de judô infantil com crianças pequenas na Academia Kaminari em Curitiba"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -429,8 +429,8 @@ export default function Home() {
             {/* Judô Juvenil */}
             <Card className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421895232/95jDM6ztxDZcobn8oqCuag/judo-dojo-interior-grDPSH8YRCJRDhrWwZq8Nc.webp"
-                alt="Judô Juvenil"
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/JSjrLtMaLIWKSMQJ.jpeg"
+                alt="Turma de judô infantil de 7 a 12 anos na Academia Kaminari em Curitiba"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -449,8 +449,8 @@ export default function Home() {
             {/* Judô Adulto */}
             <Card className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421895232/95jDM6ztxDZcobn8oqCuag/judo-hero-banner-L6v27DZEjzWGnShzmJcrhJ.webp"
-                alt="Judô Adulto"
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/kIipEDDqeyPzBTgE.webp"
+                alt="Turma de judô a partir de 13 anos na Academia Kaminari em Curitiba"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
