@@ -413,7 +413,7 @@ export default function Home() {
 
           {/* Card de critérios */}
           {(() => {
-            const criterios: Record<string, { carencia: string; tecnicas: string[]; principio?: string }> = {
+            const criterios: Record<string, { carencia: string; tecnicas: string[] }> = {
               "#E5E7EB": {
                 carencia: "Sem carência — faixa inicial",
                 tecnicas: ["Saudação em pé (Ritsu rei) e ajoelhado (Za rei)", "Ukemi (quedas) para trás e lateral na posição deitado"],
@@ -421,32 +421,26 @@ export default function Home() {
               "#9CA3AF": {
                 carencia: "3 meses como Faixa Branca",
                 tecnicas: ["Ukemi lateral a partir da posição agachada e em pé", "2 técnicas de projeção (Nage waza) do 1º Kyô", "2 técnicas de imobilização (Osae komi waza)"],
-                principio: "Nome do criador do Judô: Jigoro Kano",
               },
               "#2563EB": {
                 carencia: "6 meses como Faixa Cinza",
                 tecnicas: ["Formas de pegar no judogi (Kumi kata)", "3 tipos de Ukemi em movimento", "3 técnicas de projeção do 1º Kyô", "3 técnicas de imobilização"],
-                principio: "Nome da primeira escola de Judô: Kodokan",
               },
               "#EAB308": {
                 carencia: "6 meses como Faixa Azul",
                 tecnicas: ["Desequilíbrio (Kuzushi)", "1 sequência de golpes (Renraku waza)", "4 técnicas de projeção do 1º Kyô", "3 técnicas de imobilização", "2 viradas no solo"],
-                principio: "Quem teme perder já está vencido",
               },
               "#EA580C": {
                 carencia: "12 meses como Faixa Amarela",
                 tecnicas: ["4 sequências de golpes", "3 contragolpes (Kaeshi waza)", "Todas as técnicas de projeção do 1º Kyô", "6 técnicas de imobilização", "4 viradas no solo"],
-                principio: "Seiryoku zenyô (melhor uso da energia) e Jita kyôei (prosperidade mútua)",
               },
               "#16A34A": {
                 carencia: "12 meses como Faixa Laranja + 1 ano de registro no Zempo",
                 tecnicas: ["6 sequências de golpes", "5 contragolpes", "Todas as técnicas do 3º Kyô", "8 técnicas de imobilização", "Grupo Te waza do Nage no Kata"],
-                principio: "A única vitória que perdura é a que se conquista sobre a própria ignorância",
               },
               "#6B21A8": {
                 carencia: "12 meses como Faixa Verde + 2 anos no Zempo",
                 tecnicas: ["7 sequências de golpes", "6 contragolpes", "Todas as técnicas do 4º Kyô", "9 técnicas de imobilização", "2 estrangulamentos (Shime waza)", "2 chaves de cotovelo (Kansetsu waza)"],
-                principio: "Nunca te orgulhes de haver vencido — quem venceste hoje poderá vencer-te amanhã",
               },
               "#5C2D0E": {
                 carencia: "12 meses como Faixa Roxa + 3 anos no Zempo",
@@ -492,99 +486,58 @@ export default function Home() {
                       ))}
                     </ul>
                   </div>
-                  {c.principio && (
-                    <div className="md:col-span-2 border-t border-gray-100 pt-4">
-                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Princípio do Judô</p>
-                      <p className="text-sm text-gray-500 italic">"{c.principio}"</p>
-                    </div>
-                  )}
+
                 </div>
               </div>
             );
           })()}
 
-          <div className="flex flex-col lg:flex-row gap-12 items-center justify-center max-w-3xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-12 items-start justify-center max-w-4xl mx-auto">
 
-            {/* Lista de faixas */}
-            <div className="w-full lg:max-w-md space-y-2">
+            {/* Grid 3x3 de cards de faixa */}
+            <div className="w-full grid grid-cols-3 gap-3">
               {[
-                { cor: "#000000", nome: "Faixa Preta", grau: "1º Dan", idade: "16 anos" },
-                { cor: "#5C2D0E", nome: "Faixa Marrom", grau: "1º Kyû", idade: "14 anos" },
-                { cor: "#6B21A8", nome: "Faixa Roxa", grau: "2º Kyû", idade: "13 anos" },
-                { cor: "#16A34A", nome: "Faixa Verde", grau: "3º Kyû", idade: "12 anos" },
-                { cor: "#EA580C", nome: "Faixa Laranja", grau: "4º Kyû", idade: "11 anos" },
-                { cor: "#EAB308", nome: "Faixa Amarela", grau: "6º Kyû", idade: "9 anos" },
-                { cor: "#2563EB", nome: "Faixa Azul", grau: "8º Kyû", idade: "7 anos" },
-                { cor: "#9CA3AF", nome: "Faixa Cinza", grau: "10º Kyû", idade: "5 anos" },
-                { cor: "#E5E7EB", nome: "Faixa Branca", grau: "Iniciante", idade: "4 anos", textDark: true },
+                { cor: "#000000", nome: "Preta", grau: "1º Dan", idade: "16 anos" },
+                { cor: "#5C2D0E", nome: "Marrom", grau: "1º Kyû", idade: "14 anos" },
+                { cor: "#6B21A8", nome: "Roxa", grau: "2º Kyû", idade: "13 anos" },
+                { cor: "#16A34A", nome: "Verde", grau: "3º Kyû", idade: "12 anos" },
+                { cor: "#EA580C", nome: "Laranja", grau: "4º Kyû", idade: "11 anos" },
+                { cor: "#EAB308", nome: "Amarela", grau: "6º Kyû", idade: "9 anos" },
+                { cor: "#2563EB", nome: "Azul", grau: "8º Kyû", idade: "7 anos" },
+                { cor: "#9CA3AF", nome: "Cinza", grau: "10º Kyû", idade: "5 anos" },
+                { cor: "#E5E7EB", nome: "Branca", grau: "Iniciante", idade: "4 anos", textDark: true },
               ].map((faixa, index) => {
                 const isSelected = selectedBelt.cor === faixa.cor;
                 return (
                   <button
                     key={faixa.nome}
-                    onClick={() => setSelectedBelt({ cor: faixa.cor, nome: faixa.nome })}
-                    className="group w-full flex items-center gap-4 animate-fade-in text-left"
+                    onClick={() => setSelectedBelt({ cor: faixa.cor, nome: `Faixa ${faixa.nome}` })}
+                    className="group flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all duration-200 bg-white text-center animate-fade-in"
                     style={{
-                      animationDelay: `${index * 80}ms`,
+                      borderColor: isSelected ? faixa.cor : "transparent",
+                      boxShadow: isSelected ? `0 0 0 3px ${faixa.cor}22` : undefined,
+                      animationDelay: `${index * 60}ms`,
                       animationFillMode: "both",
                     }}
                   >
-                    {/* Indicador de selecionado */}
-                    <span className="text-xs text-gray-400 w-4 text-right font-mono">{9 - index}</span>
-
-                    {/* Barra da faixa */}
+                    {/* Círculo colorido */}
                     <div
-                      className={`relative flex-1 rounded-lg overflow-hidden transition-all duration-300 ${
-                        isSelected
-                          ? "shadow-lg scale-[1.02] ring-2 ring-offset-2 ring-gray-400"
-                          : "shadow-sm hover:shadow-md hover:scale-[1.01]"
-                      }`}
+                      className="w-10 h-10 rounded-full border-2 border-gray-200 transition-transform duration-200 group-hover:scale-110"
                       style={{ backgroundColor: faixa.cor }}
-                    >
-                      {/* Textura de tecido simulada */}
-                      <div
-                        className="absolute inset-0 opacity-10"
-                        style={{
-                          backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(255,255,255,0.3) 8px, rgba(255,255,255,0.3) 9px)",
-                        }}
-                      />
-                      <div className="relative flex items-center justify-between px-5 py-3">
-                        <span
-                          className={`font-bold text-base md:text-lg tracking-wide ${
-                            faixa.textDark ? "text-gray-700" : "text-white"
-                          }`}
-                        >
-                          {faixa.nome}
-                        </span>
-                        <div className="flex items-center gap-4">
-                          <span
-                            className={`text-sm font-medium hidden sm:block ${
-                              faixa.textDark ? "text-gray-500" : "text-white/80"
-                            }`}
-                          >
-                            {faixa.grau}
-                          </span>
-                          <span
-                            className={`text-sm font-semibold px-3 py-1 rounded-full ${
-                              faixa.textDark
-                                ? "bg-gray-200 text-gray-700"
-                                : "bg-white/20 text-white"
-                            }`}
-                          >
-                            {faixa.idade}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                    />
+                    {/* Nome */}
+                    <span className="text-xs font-semibold text-gray-800 leading-tight">{faixa.nome}</span>
+                    {/* Idade */}
+                    <span className="text-xs text-gray-400">{faixa.idade}</span>
                   </button>
                 );
               })}
             </div>
 
-            {/* Judoca SVG — sticky no desktop */}
-            <div className="lg:sticky lg:top-28 flex-shrink-0">
+            {/* Quimono + info — sticky no desktop */}
+            <div className="lg:sticky lg:top-28 flex-shrink-0 flex flex-col items-center gap-3">
               <JudocaSVG beltColor={selectedBelt.cor} beltName={selectedBelt.nome} />
-              <p className="text-center text-xs text-gray-400 mt-4 max-w-[160px] mx-auto">
+              <p className="text-center text-xs text-gray-400 max-w-[160px]">
                 Clique em uma faixa para visualizar
               </p>
             </div>
