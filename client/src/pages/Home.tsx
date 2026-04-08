@@ -16,7 +16,7 @@ import { JudocaSVG } from "@/components/JudocaSVG";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [selectedBelt, setSelectedBelt] = useState({ cor: "#E5E7EB", nome: "Faixa Branca" });
+  const [selectedBelt, setSelectedBelt] = useState<{ cor: string; nome: string } | null>(null);
 
   // Smooth scroll para seções
   const scrollToSection = (sectionId: string) => {
@@ -411,8 +411,62 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Card de critérios */}
-          {(() => {
+          <div className="flex flex-col lg:flex-row gap-12 items-start justify-center max-w-4xl mx-auto">
+
+            {/* Grid 3x3 de cards de faixa — critérios aparecem ABAIXO */}
+            <div className="w-full grid grid-cols-3 gap-3">
+              {[
+                { cor: "#000000", nome: "Preta", grau: "1º Dan", idade: "16 anos" },
+                { cor: "#5C2D0E", nome: "Marrom", grau: "1º Kyû", idade: "14 anos" },
+                { cor: "#6B21A8", nome: "Roxa", grau: "2º Kyû", idade: "13 anos" },
+                { cor: "#16A34A", nome: "Verde", grau: "3º Kyû", idade: "12 anos" },
+                { cor: "#EA580C", nome: "Laranja", grau: "4º Kyû", idade: "11 anos" },
+                { cor: "#EAB308", nome: "Amarela", grau: "6º Kyû", idade: "9 anos" },
+                { cor: "#2563EB", nome: "Azul", grau: "8º Kyû", idade: "7 anos" },
+                { cor: "#9CA3AF", nome: "Cinza", grau: "10º Kyû", idade: "5 anos" },
+                { cor: "#E5E7EB", nome: "Branca", grau: "Iniciante", idade: "4 anos", textDark: true },
+              ].map((faixa, index) => {
+                const isSelected = selectedBelt?.cor === faixa.cor;
+                return (
+                  <button
+                    key={faixa.nome}
+                    onClick={() => setSelectedBelt({ cor: faixa.cor, nome: `Faixa ${faixa.nome}` })}
+                    className="group flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all duration-200 bg-white text-center animate-fade-in"
+                    style={{
+                      borderColor: isSelected ? faixa.cor : "transparent",
+                      boxShadow: isSelected ? `0 0 0 3px ${faixa.cor}22` : undefined,
+                      animationDelay: `${index * 60}ms`,
+                      animationFillMode: "both",
+                    }}
+                  >
+                    {/* Círculo colorido */}
+                    <div
+                      className="w-10 h-10 rounded-full border-2 border-gray-200 transition-transform duration-200 group-hover:scale-110"
+                      style={{ backgroundColor: faixa.cor }}
+                    />
+                    {/* Nome */}
+                    <span className="text-xs font-semibold text-gray-800 leading-tight">{faixa.nome}</span>
+                    {/* Idade */}
+                    <span className="text-xs text-gray-400">{faixa.idade}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Quimono + info — sticky no desktop */}
+            <div className="lg:sticky lg:top-28 flex-shrink-0 flex flex-col items-center gap-3">
+              <JudocaSVG beltColor={selectedBelt?.cor ?? "#E5E7EB"} beltName={selectedBelt?.nome ?? "Faixa Branca"} />
+              {!selectedBelt && (
+                <p className="text-center text-xs text-gray-400 max-w-[160px]">
+                  Clique em uma faixa para visualizar
+                </p>
+              )}
+            </div>
+
+          </div>
+
+          {/* Card de critérios — abaixo do grid */}
+          {selectedBelt && (() => {
             const criterios: Record<string, { carencia: string; grupos: { titulo: string; itens: string[] }[] }> = {
               "#E5E7EB": {
                 carencia: "Faixa inicial — sem carência",
@@ -497,30 +551,31 @@ export default function Home() {
               "#000000": {
                 carencia: "1 ano como Faixa Marrom + aprovação em exame",
                 grupos: [
-                  { titulo: "Nage-Waza", itens: ["Dominínio completo das técnicas de todas as faixas anteriores"] },
+                  { titulo: "Nage-Waza", itens: ["Domínio completo das técnicas de todas as faixas anteriores"] },
                   { titulo: "Katame-Waza", itens: ["Osae-Waza, Shime-Waza e Kansetsu-Waza completos"] },
                   { titulo: "Kaeshi e Renraku-Waza", itens: ["Domínio de contragolpes e sequências"] },
                   { titulo: "Exame teórico", itens: ["Histórico do Judô", "Filosofia e ética", "Vocabulário técnico"] },
                 ],
               },
             };
-            const c = criterios[selectedBelt.cor];
+            const belt = selectedBelt!;
+            const c = criterios[belt.cor];
             if (!c) return null;
-            const isDark = selectedBelt.cor !== "#E5E7EB" && selectedBelt.cor !== "#EAB308";
+            const isDark = belt.cor !== "#E5E7EB" && belt.cor !== "#EAB308";
             return (
               <div
-                key={selectedBelt.cor}
-                className="max-w-3xl mx-auto mb-10 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden"
+                key={belt.cor}
+                className="max-w-3xl mx-auto mt-10 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden"
                 style={{ animation: "fadeInDown 0.35s ease both" }}
               >
                 {/* Cabeçalho colorido */}
                 <div
                   className="px-6 py-4 flex items-center justify-between"
-                  style={{ backgroundColor: selectedBelt.cor }}
+                  style={{ backgroundColor: belt.cor === "#E5E7EB" ? "#f3f4f6" : belt.cor, border: belt.cor === "#E5E7EB" ? "1px solid #d1d5db" : "none" }}
                 >
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.5)" }}>Programa de Exame</p>
-                    <span className="font-bold text-lg" style={{ color: isDark ? "white" : "#374151" }}>{selectedBelt.nome}</span>
+                    <span className="font-bold text-lg" style={{ color: isDark ? "white" : "#374151" }}>{belt.nome}</span>
                   </div>
                   <div className="text-right">
                     <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.5)" }}>Carência mínima</p>
@@ -546,58 +601,6 @@ export default function Home() {
               </div>
             );
           })()}
-
-          <div className="flex flex-col lg:flex-row gap-12 items-start justify-center max-w-4xl mx-auto">
-
-            {/* Grid 3x3 de cards de faixa */}
-            <div className="w-full grid grid-cols-3 gap-3">
-              {[
-                { cor: "#000000", nome: "Preta", grau: "1º Dan", idade: "16 anos" },
-                { cor: "#5C2D0E", nome: "Marrom", grau: "1º Kyû", idade: "14 anos" },
-                { cor: "#6B21A8", nome: "Roxa", grau: "2º Kyû", idade: "13 anos" },
-                { cor: "#16A34A", nome: "Verde", grau: "3º Kyû", idade: "12 anos" },
-                { cor: "#EA580C", nome: "Laranja", grau: "4º Kyû", idade: "11 anos" },
-                { cor: "#EAB308", nome: "Amarela", grau: "6º Kyû", idade: "9 anos" },
-                { cor: "#2563EB", nome: "Azul", grau: "8º Kyû", idade: "7 anos" },
-                { cor: "#9CA3AF", nome: "Cinza", grau: "10º Kyû", idade: "5 anos" },
-                { cor: "#E5E7EB", nome: "Branca", grau: "Iniciante", idade: "4 anos", textDark: true },
-              ].map((faixa, index) => {
-                const isSelected = selectedBelt.cor === faixa.cor;
-                return (
-                  <button
-                    key={faixa.nome}
-                    onClick={() => setSelectedBelt({ cor: faixa.cor, nome: `Faixa ${faixa.nome}` })}
-                    className="group flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all duration-200 bg-white text-center animate-fade-in"
-                    style={{
-                      borderColor: isSelected ? faixa.cor : "transparent",
-                      boxShadow: isSelected ? `0 0 0 3px ${faixa.cor}22` : undefined,
-                      animationDelay: `${index * 60}ms`,
-                      animationFillMode: "both",
-                    }}
-                  >
-                    {/* Círculo colorido */}
-                    <div
-                      className="w-10 h-10 rounded-full border-2 border-gray-200 transition-transform duration-200 group-hover:scale-110"
-                      style={{ backgroundColor: faixa.cor }}
-                    />
-                    {/* Nome */}
-                    <span className="text-xs font-semibold text-gray-800 leading-tight">{faixa.nome}</span>
-                    {/* Idade */}
-                    <span className="text-xs text-gray-400">{faixa.idade}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Quimono + info — sticky no desktop */}
-            <div className="lg:sticky lg:top-28 flex-shrink-0 flex flex-col items-center gap-3">
-              <JudocaSVG beltColor={selectedBelt.cor} beltName={selectedBelt.nome} />
-              <p className="text-center text-xs text-gray-400 max-w-[160px]">
-                Clique em uma faixa para visualizar
-              </p>
-            </div>
-
-          </div>
 
           <p className="text-center text-sm text-gray-400 mt-10">
             Regulamento oficial da Confederação Brasileira de Judô (CBJ) — 2019
