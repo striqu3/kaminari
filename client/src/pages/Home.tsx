@@ -411,10 +411,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12 items-center max-w-5xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-10 items-center max-w-4xl mx-auto">
 
             {/* Lista de faixas */}
-            <div className="flex-1 w-full space-y-3">
+            <div className="w-full lg:max-w-md space-y-2">
               {[
                 { cor: "#000000", nome: "Faixa Preta", grau: "1º Dan", idade: "16 anos" },
                 { cor: "#5C2D0E", nome: "Faixa Marrom", grau: "1º Kyû", idade: "14 anos" },
