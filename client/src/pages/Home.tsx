@@ -411,6 +411,98 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Card de critérios */}
+          {(() => {
+            const criterios: Record<string, { carencia: string; tecnicas: string[]; principio?: string }> = {
+              "#E5E7EB": {
+                carencia: "Sem carência — faixa inicial",
+                tecnicas: ["Saudação em pé (Ritsu rei) e ajoelhado (Za rei)", "Ukemi (quedas) para trás e lateral na posição deitado"],
+              },
+              "#9CA3AF": {
+                carencia: "3 meses como Faixa Branca",
+                tecnicas: ["Ukemi lateral a partir da posição agachada e em pé", "2 técnicas de projeção (Nage waza) do 1º Kyô", "2 técnicas de imobilização (Osae komi waza)"],
+                principio: "Nome do criador do Judô: Jigoro Kano",
+              },
+              "#2563EB": {
+                carencia: "6 meses como Faixa Cinza",
+                tecnicas: ["Formas de pegar no judogi (Kumi kata)", "3 tipos de Ukemi em movimento", "3 técnicas de projeção do 1º Kyô", "3 técnicas de imobilização"],
+                principio: "Nome da primeira escola de Judô: Kodokan",
+              },
+              "#EAB308": {
+                carencia: "6 meses como Faixa Azul",
+                tecnicas: ["Desequilíbrio (Kuzushi)", "1 sequência de golpes (Renraku waza)", "4 técnicas de projeção do 1º Kyô", "3 técnicas de imobilização", "2 viradas no solo"],
+                principio: "Quem teme perder já está vencido",
+              },
+              "#EA580C": {
+                carencia: "12 meses como Faixa Amarela",
+                tecnicas: ["4 sequências de golpes", "3 contragolpes (Kaeshi waza)", "Todas as técnicas de projeção do 1º Kyô", "6 técnicas de imobilização", "4 viradas no solo"],
+                principio: "Seiryoku zenyô (melhor uso da energia) e Jita kyôei (prosperidade mútua)",
+              },
+              "#16A34A": {
+                carencia: "12 meses como Faixa Laranja + 1 ano de registro no Zempo",
+                tecnicas: ["6 sequências de golpes", "5 contragolpes", "Todas as técnicas do 3º Kyô", "8 técnicas de imobilização", "Grupo Te waza do Nage no Kata"],
+                principio: "A única vitória que perdura é a que se conquista sobre a própria ignorância",
+              },
+              "#6B21A8": {
+                carencia: "12 meses como Faixa Verde + 2 anos no Zempo",
+                tecnicas: ["7 sequências de golpes", "6 contragolpes", "Todas as técnicas do 4º Kyô", "9 técnicas de imobilização", "2 estrangulamentos (Shime waza)", "2 chaves de cotovelo (Kansetsu waza)"],
+                principio: "Nunca te orgulhes de haver vencido — quem venceste hoje poderá vencer-te amanhã",
+              },
+              "#5C2D0E": {
+                carencia: "12 meses como Faixa Roxa + 3 anos no Zempo",
+                tecnicas: ["8 sequências de golpes", "7 contragolpes", "Todas as técnicas do 5º Kyô", "4 estrangulamentos", "4 chaves de cotovelo", "Grupo Ashi waza do Nage no Kata", "Noções de arbitragem"],
+              },
+              "#000000": {
+                carencia: "2 anos como Faixa Marrom + 4 anos no Zempo + 700 pontos em competições",
+                tecnicas: ["Nage no Kata completo (como Tori)", "Nage waza, Renraku waza, Kaeshi waza e Katame waza", "Prova teórica: histórico, filosofia, ética e vocabulário técnico", "Apresentação prática de arbitragem"],
+              },
+            };
+            const c = criterios[selectedBelt.cor];
+            if (!c) return null;
+            return (
+              <div
+                key={selectedBelt.cor}
+                className="max-w-3xl mx-auto mb-10 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden"
+                style={{ animation: "fadeInDown 0.35s ease both" }}
+              >
+                <div
+                  className="px-6 py-3 flex items-center gap-3"
+                  style={{ backgroundColor: selectedBelt.cor }}
+                >
+                  <span
+                    className="font-bold text-base tracking-wide"
+                    style={{ color: selectedBelt.cor === "#E5E7EB" || selectedBelt.cor === "#EAB308" ? "#374151" : "white" }}
+                  >
+                    Critérios — {selectedBelt.nome}
+                  </span>
+                </div>
+                <div className="px-6 py-5 grid md:grid-cols-2 gap-5">
+                  <div>
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Carência mínima</p>
+                    <p className="text-sm text-gray-700">{c.carencia}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Técnicas e requisitos</p>
+                    <ul className="space-y-1">
+                      {c.tecnicas.map((t, i) => (
+                        <li key={i} className="text-sm text-gray-700 flex gap-2">
+                          <span className="text-gray-300 mt-0.5">›</span>
+                          <span>{t}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {c.principio && (
+                    <div className="md:col-span-2 border-t border-gray-100 pt-4">
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Princípio do Judô</p>
+                      <p className="text-sm text-gray-500 italic">"{c.principio}"</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })()}
+
           <div className="flex flex-col lg:flex-row gap-12 items-center justify-center max-w-3xl mx-auto">
 
             {/* Lista de faixas */}
