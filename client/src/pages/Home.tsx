@@ -398,6 +398,90 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Faixas Section */}
+      <section id="faixas" className="py-20 bg-gray-50 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Progressão de Faixas</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              No judô, cada faixa representa uma etapa de evolução técnica, física e filosófica.
+              A progressão segue o regulamento oficial da Confederação Brasileira de Judô (CBJ).
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-3">
+            {[
+              { cor: "#000000", nome: "Faixa Preta", grau: "1º Dan", idade: "16 anos", destaque: true },
+              { cor: "#5C2D0E", nome: "Faixa Marrom", grau: "1º Kyû", idade: "14 anos" },
+              { cor: "#6B21A8", nome: "Faixa Roxa", grau: "2º Kyû", idade: "13 anos" },
+              { cor: "#16A34A", nome: "Faixa Verde", grau: "3º Kyû", idade: "12 anos" },
+              { cor: "#EA580C", nome: "Faixa Laranja", grau: "4º Kyû", idade: "11 anos" },
+              { cor: "#EAB308", nome: "Faixa Amarela", grau: "6º Kyû", idade: "9 anos" },
+              { cor: "#2563EB", nome: "Faixa Azul", grau: "8º Kyû", idade: "7 anos" },
+              { cor: "#9CA3AF", nome: "Faixa Cinza", grau: "10º Kyû", idade: "5 anos" },
+              { cor: "#E5E7EB", nome: "Faixa Branca", grau: "Iniciante", idade: "4 anos", textDark: true },
+            ].map((faixa, index) => (
+              <div
+                key={faixa.nome}
+                className="group flex items-center gap-4 animate-fade-in"
+                style={{
+                  animationDelay: `${index * 80}ms`,
+                  animationFillMode: "both",
+                }}
+              >
+                {/* Número de ordem */}
+                <span className="text-xs text-gray-400 w-4 text-right font-mono">{9 - index}</span>
+
+                {/* Barra da faixa */}
+                <div
+                  className="relative flex-1 rounded-lg overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-300 group-hover:scale-[1.01]"
+                  style={{ backgroundColor: faixa.cor }}
+                >
+                  {/* Textura de tecido simulada */}
+                  <div
+                    className="absolute inset-0 opacity-10"
+                    style={{
+                      backgroundImage: "repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(255,255,255,0.3) 8px, rgba(255,255,255,0.3) 9px)",
+                    }}
+                  />
+                  <div className="relative flex items-center justify-between px-5 py-3">
+                    <span
+                      className={`font-bold text-base md:text-lg tracking-wide ${
+                        faixa.textDark ? "text-gray-700" : "text-white"
+                      }`}
+                    >
+                      {faixa.nome}
+                    </span>
+                    <div className="flex items-center gap-4">
+                      <span
+                        className={`text-sm font-medium hidden sm:block ${
+                          faixa.textDark ? "text-gray-500" : "text-white/80"
+                        }`}
+                      >
+                        {faixa.grau}
+                      </span>
+                      <span
+                        className={`text-sm font-semibold px-3 py-1 rounded-full ${
+                          faixa.textDark
+                            ? "bg-gray-200 text-gray-700"
+                            : "bg-white/20 text-white"
+                        }`}
+                      >
+                        {faixa.idade}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-gray-400 mt-8">
+            Regulamento oficial da Confederação Brasileira de Judô (CBJ) — 2019
+          </p>
+        </div>
+      </section>
+
       {/* Aulas Section */}
       <section id="aulas" className="py-20 bg-white">
         <div className="container mx-auto px-4">
