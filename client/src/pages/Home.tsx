@@ -413,80 +413,135 @@ export default function Home() {
 
           {/* Card de critérios */}
           {(() => {
-            const criterios: Record<string, { carencia: string; tecnicas: string[] }> = {
+            const criterios: Record<string, { carencia: string; grupos: { titulo: string; itens: string[] }[] }> = {
               "#E5E7EB": {
-                carencia: "Sem carência — faixa inicial",
-                tecnicas: ["Saudação em pé (Ritsu rei) e ajoelhado (Za rei)", "Ukemi (quedas) para trás e lateral na posição deitado"],
+                carencia: "Faixa inicial — sem carência",
+                grupos: [
+                  { titulo: "Ukemis (Quedas)", itens: ["Ushiro-Ukemi", "Yoko-Ukemi", "Mae-Ukemi", "Mae-Maware-Ukemi"] },
+                ],
               },
               "#9CA3AF": {
-                carencia: "3 meses como Faixa Branca",
-                tecnicas: ["Ukemi lateral a partir da posição agachada e em pé", "2 técnicas de projeção (Nage waza) do 1º Kyô", "2 técnicas de imobilização (Osae komi waza)"],
+                carencia: "6 meses como Faixa Branca",
+                grupos: [
+                  { titulo: "Ukemis (Quedas)", itens: ["Ushiro-Ukemi", "Mae-Ukemi (joelhos)", "Mae-Mawari-Ukemi"] },
+                  { titulo: "Rei-Ho (Saudação)", itens: ["Za-Rei", "Ritsu-Rei"] },
+                  { titulo: "Shisei (Posturas)", itens: ["Seiza", "Agura"] },
+                  { titulo: "Nage-Waza (Projeções)", itens: ["O-Soto-Gari", "Koshi-Guruma", "O-Uchi-Gari"] },
+                  { titulo: "Osae-Waza (Imobilizações)", itens: ["Kesa-Gatame", "Tate-Shiho-Gatame"] },
+                  { titulo: "Contagem", itens: ["Até 10 em japonês"] },
+                ],
               },
               "#2563EB": {
                 carencia: "6 meses como Faixa Cinza",
-                tecnicas: ["Formas de pegar no judogi (Kumi kata)", "3 tipos de Ukemi em movimento", "3 técnicas de projeção do 1º Kyô", "3 técnicas de imobilização"],
+                grupos: [
+                  { titulo: "Ukemis (Quedas)", itens: ["Ushiro-Ukemi", "Mae-Ukemi", "Yoko-Ukemi (deitado)", "Mae-Mawari-Ukemi"] },
+                  { titulo: "Rei-Ho (Saudação)", itens: ["Za-Rei", "Ritsu-Rei"] },
+                  { titulo: "Shisei (Posturas)", itens: ["Seiza", "Agura"] },
+                  { titulo: "Nage-Waza (Projeções)", itens: ["O-Soto-Gari", "Koshi-Guruma", "O-Uchi-Gari", "Ippon-Seoi-Nage", "O-Goshi"] },
+                  { titulo: "Osae-Waza (Imobilizações)", itens: ["Kesa-Gatame", "Tate-Shiho-Gatame", "Yoko-Shiho-Gatame"] },
+                  { titulo: "Contagem", itens: ["Até 20 em japonês"] },
+                ],
               },
               "#EAB308": {
                 carencia: "6 meses como Faixa Azul",
-                tecnicas: ["Desequilíbrio (Kuzushi)", "1 sequência de golpes (Renraku waza)", "4 técnicas de projeção do 1º Kyô", "3 técnicas de imobilização", "2 viradas no solo"],
+                grupos: [
+                  { titulo: "Ukemis (Quedas)", itens: ["Ushiro-Ukemi (2x)", "Mae-Ukemi (2x)", "Yoko-Ukemi (2x)", "Mae-Mawari-Ukemi"] },
+                  { titulo: "Rei-Ho e Shisei", itens: ["Za-Rei / Ritsu-Rei", "Seiza / Agura / Shizen-Tai / Jigo-Tai"] },
+                  { titulo: "Nage-Waza (Projeções)", itens: ["O-Soto-Gari", "Koshi-Guruma", "O-Uchi-Gari", "Ippon-Seoi-Nage", "O-Goshi", "Ko-Soto-Gake", "Seoi-Nage"] },
+                  { titulo: "Osae-Waza (Imobilizações)", itens: ["Kesa-Gatame", "Tate-Shiho-Gatame", "Yoko-Shiho-Gatame", "Kami-Shiho-Gatame"] },
+                  { titulo: "Contagem", itens: ["Até 30 em japonês"] },
+                ],
               },
               "#EA580C": {
-                carencia: "12 meses como Faixa Amarela",
-                tecnicas: ["4 sequências de golpes", "3 contragolpes (Kaeshi waza)", "Todas as técnicas de projeção do 1º Kyô", "6 técnicas de imobilização", "4 viradas no solo"],
+                carencia: "1 ano como Faixa Amarela",
+                grupos: [
+                  { titulo: "Programa da Faixa Amarela +", itens: ["Todos os requisitos da faixa anterior"] },
+                  { titulo: "Tai Sabaki (Movimentação)", itens: ["Migui-Ashi-Mae-Sabaki", "Hidari-Ashi-Mae-Sabaki", "Migui-Ashi-Mae-Mawari-Sabaki", "Hidari-Ashi-Mae-Mawari-Sabaki"] },
+                  { titulo: "Nage-Waza (Projeções novas)", itens: ["Harai-Goshi", "Tai-Otoshi", "De-Ashi-Harai", "Ko-Uchi-Gari"] },
+                  { titulo: "Osae-Waza (Imobilizações novas)", itens: ["Kuzure-Kesa-Gatame", "Ushiro-Kesa-Gatame"] },
+                  { titulo: "Kaeshi-Waza (Contragolpes)", itens: ["3 técnicas"] },
+                  { titulo: "Renraku-Henka-Waza (Sequências)", itens: ["3 técnicas"] },
+                ],
               },
               "#16A34A": {
-                carencia: "12 meses como Faixa Laranja + 1 ano de registro no Zempo",
-                tecnicas: ["6 sequências de golpes", "5 contragolpes", "Todas as técnicas do 3º Kyô", "8 técnicas de imobilização", "Grupo Te waza do Nage no Kata"],
+                carencia: "1 ano como Faixa Laranja",
+                grupos: [
+                  { titulo: "Nage-Waza (Projeções)", itens: ["Sasae-Tsurikomi-Ashi", "O-Soto-Guruma", "Uchi-Mata", "Hane-Goshi", "Tomoe-Nage"] },
+                  { titulo: "Osae-Waza (Imobilizações)", itens: ["Kata-Gatame", "Uki-Gatame", "Ura-Gatame"] },
+                  { titulo: "Shime-Waza (Estrangulamentos)", itens: ["Nami-Juji-Jime", "Kata-Juji-Jime", "Gyaku-Juji-Jime"] },
+                  { titulo: "Kansetsu-Waza (Chaves)", itens: ["Ude-Garami", "Ude-Hishigi-Ude-Gatame", "Ude-Hishigi-Juji-Gatame"] },
+                  { titulo: "Kaeshi-Waza", itens: ["5 técnicas"] },
+                  { titulo: "Renraku-Henka-Waza", itens: ["5 técnicas"] },
+                ],
               },
               "#6B21A8": {
-                carencia: "12 meses como Faixa Verde + 2 anos no Zempo",
-                tecnicas: ["7 sequências de golpes", "6 contragolpes", "Todas as técnicas do 4º Kyô", "9 técnicas de imobilização", "2 estrangulamentos (Shime waza)", "2 chaves de cotovelo (Kansetsu waza)"],
+                carencia: "1 ano como Faixa Verde",
+                grupos: [
+                  { titulo: "Nage-Waza (Projeções)", itens: ["Hiza-Guruma", "Uki-Goshi", "Ko-Soto-Gari", "Tsurikomi-Goshi", "Okuri-Ashi-Harai"] },
+                  { titulo: "Osae-Waza", itens: ["Osae-Waza completo"] },
+                  { titulo: "Shime-Waza (Estrangulamentos)", itens: ["Nami-Juji-Jime", "Kata-Juji-Jime", "Gyaku-Juji-Jime", "Hadaka-Jime", "Okuri-Eri-Jime", "Kataha-Jime"] },
+                  { titulo: "Kansetsu-Waza (Chaves)", itens: ["Ude-Garami", "Ude-Hishigi-Ude-Gatame", "Ude-Hishigi-Juji-Gatame", "Ude-Hishigi-Waki-Gatame", "Ude-Hishigi-Hara-Gatame", "Ude-Hishigi-Hiza-Gatame"] },
+                  { titulo: "Kaeshi-Waza", itens: ["5 técnicas"] },
+                  { titulo: "Renraku-Henka-Waza", itens: ["5 técnicas"] },
+                ],
               },
               "#5C2D0E": {
-                carencia: "12 meses como Faixa Roxa + 3 anos no Zempo",
-                tecnicas: ["8 sequências de golpes", "7 contragolpes", "Todas as técnicas do 5º Kyô", "4 estrangulamentos", "4 chaves de cotovelo", "Grupo Ashi waza do Nage no Kata", "Noções de arbitragem"],
+                carencia: "1 ano como Faixa Roxa",
+                grupos: [
+                  { titulo: "Nage-Waza (Projeções)", itens: ["Tsuri-Goshi", "Yoko-Otoshi", "Ashi-Guruma", "Harai-Tsurikomi-Ashi", "Kata-Guruma", "Sumi-Gaeshi", "Tani-Otoshi", "Hane-Makikomi", "Sukui-Nage", "Utsuri-Goshi", "O-Guruma", "Soto-Makikomi", "Uki-Otoshi"] },
+                  { titulo: "Osae-Waza", itens: ["Osae-Waza completo"] },
+                  { titulo: "Shime-Waza (Estrangulamentos)", itens: ["Nami-Juji-Jime", "Kata-Juji-Jime", "Gyaku-Juji-Jime", "Hadaka-Jime", "Okuri-Eri-Jime", "Kataha-Jime", "Katate-Jime", "Ryote-Jime", "Tsukkomi-Jime"] },
+                  { titulo: "Kansetsu-Waza (Chaves)", itens: ["Ude-Garami", "Ude-Hishigi-Ude-Gatame", "Ude-Hishigi-Juji-Gatame", "Ude-Hishigi-Waki-Gatame", "Ude-Hishigi-Hara-Gatame", "Ude-Hishigi-Hiza-Gatame", "Ude-Hishigi-Ashi-Gatame", "Ude-Hishigi-Te-Gatame", "Ude-Hishigi-Sankaku-Gatame"] },
+                ],
               },
               "#000000": {
-                carencia: "2 anos como Faixa Marrom + 4 anos no Zempo + 700 pontos em competições",
-                tecnicas: ["Nage no Kata completo (como Tori)", "Nage waza, Renraku waza, Kaeshi waza e Katame waza", "Prova teórica: histórico, filosofia, ética e vocabulário técnico", "Apresentação prática de arbitragem"],
+                carencia: "1 ano como Faixa Marrom + aprovação em exame",
+                grupos: [
+                  { titulo: "Nage-Waza", itens: ["Dominínio completo das técnicas de todas as faixas anteriores"] },
+                  { titulo: "Katame-Waza", itens: ["Osae-Waza, Shime-Waza e Kansetsu-Waza completos"] },
+                  { titulo: "Kaeshi e Renraku-Waza", itens: ["Domínio de contragolpes e sequências"] },
+                  { titulo: "Exame teórico", itens: ["Histórico do Judô", "Filosofia e ética", "Vocabulário técnico"] },
+                ],
               },
             };
             const c = criterios[selectedBelt.cor];
             if (!c) return null;
+            const isDark = selectedBelt.cor !== "#E5E7EB" && selectedBelt.cor !== "#EAB308";
             return (
               <div
                 key={selectedBelt.cor}
                 className="max-w-3xl mx-auto mb-10 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden"
                 style={{ animation: "fadeInDown 0.35s ease both" }}
               >
+                {/* Cabeçalho colorido */}
                 <div
-                  className="px-6 py-3 flex items-center gap-3"
+                  className="px-6 py-4 flex items-center justify-between"
                   style={{ backgroundColor: selectedBelt.cor }}
                 >
-                  <span
-                    className="font-bold text-base tracking-wide"
-                    style={{ color: selectedBelt.cor === "#E5E7EB" || selectedBelt.cor === "#EAB308" ? "#374151" : "white" }}
-                  >
-                    Critérios — {selectedBelt.nome}
-                  </span>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.5)" }}>Programa de Exame</p>
+                    <span className="font-bold text-lg" style={{ color: isDark ? "white" : "#374151" }}>{selectedBelt.nome}</span>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: isDark ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.5)" }}>Carência mínima</p>
+                    <p className="text-sm font-medium" style={{ color: isDark ? "white" : "#374151" }}>{c.carencia}</p>
+                  </div>
                 </div>
-                <div className="px-6 py-5 grid md:grid-cols-2 gap-5">
-                  <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Carência mínima</p>
-                    <p className="text-sm text-gray-700">{c.carencia}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">Técnicas e requisitos</p>
-                    <ul className="space-y-1">
-                      {c.tecnicas.map((t, i) => (
-                        <li key={i} className="text-sm text-gray-700 flex gap-2">
-                          <span className="text-gray-300 mt-0.5">›</span>
-                          <span>{t}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
+                {/* Grupos de técnicas */}
+                <div className="px-6 py-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {c.grupos.map((g, gi) => (
+                    <div key={gi}>
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">{g.titulo}</p>
+                      <ul className="space-y-1">
+                        {g.itens.map((item, ii) => (
+                          <li key={ii} className="text-sm text-gray-700 flex gap-1.5">
+                            <span className="text-gray-300 mt-0.5 flex-shrink-0">›</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
             );
@@ -621,25 +676,7 @@ export default function Home() {
               </div>
             </Card>
 
-            {/* Treinamento para Competição */}
-            <Card className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663421895232/95jDM6ztxDZcobn8oqCuag/judo-competition-LuWQQ62JEQgTo8EkxESGWH.webp"
-                alt="Treinamento para Competição"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-black mb-3">Treinamento para Competição</h3>
-                <p className="text-gray-700 mb-4">
-                  Programa especializado para atletas que desejam competir em torneios e campeonatos regionais e nacionais.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>✓ Estratégia de combate</li>
-                  <li>✓ Preparação mental</li>
-                  <li>✓ Participação em torneios</li>
-                </ul>
-              </div>
-            </Card>
+
           </div>
 
           <div className="mt-12 text-center">
@@ -846,8 +883,8 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-bold text-black mb-2">Email</h3>
                   <p className="text-gray-700">
-                    <a href="mailto:contato@judokaminari.com" className="hover:text-rose-500 transition-colors">
-                      contato@judokaminari.com
+                    <a href="mailto:judokaminari@gmail.com" className="hover:text-rose-500 transition-colors">
+                      judokaminari@gmail.com
                     </a>
                   </p>
                 </div>
